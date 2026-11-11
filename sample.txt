@@ -1,0 +1,368 @@
+Analysis of sampling db-99a074504563992f (pid 48578) every 1 millisecond
+Process:         db-99a074504563992f [48578]
+Path:            /Users/USER/*/db-99a074504563992f
+Load Address:    0x1044bc000
+Identifier:      db-99a074504563992f
+Version:         0
+Code Type:       ARM64
+Platform:        macOS
+Parent Process:  cargo [48453]
+Target Type:     live task
+
+Date/Time:       2026-11-11 21:01:02.807 +0800
+Launch Time:     2026-11-11 18:34:47.962 +0800
+OS Version:      macOS 27.0.1 (26A434)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         4464K
+Physical footprint (peak):  4737K
+Idle exit:                  untracked
+----
+
+Call graph:
+    1702 Thread_2733440   DispatchQueue_1: com.apple.main-thread  (serial)
+    + 1702 start  (in dyld) + 6688  [0x19592be80]
+    +   1702 main  (in db-99a074504563992f) + 36  [0x1044e40c0]
+    +     1702 _RINvNtCsiIUrW5dXA8f_3std2rt10lang_startNtNtB4_7process8ExitCodeECsd5HTyoy0gnv_2db  (in db-99a074504563992f) + 60  [0x1044bf3dc]  rt.rs:205
+    +       1702 _RNvNtCsiIUrW5dXA8f_3std2rt19lang_start_internal  (in db-99a074504563992f) + 952  [0x1045ba048]
+    +         1702 _RNCINvNtCsiIUrW5dXA8f_3std2rt10lang_startNtNtB6_7process8ExitCodeE0Csd5HTyoy0gnv_2db  (in db-99a074504563992f) + 16  [0x1044bf3f8]  rt.rs:206
+    +           1702 _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceFENtNtB6_7process8ExitCodeB19_ECsd5HTyoy0gnv_2db  (in db-99a074504563992f) + 16  [0x1044c7ee8]  backtrace.rs:166
+    +             1702 _RNvYFENtNtCsiIUrW5dXA8f_3std7process8ExitCodeINtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_onceCsd5HTyoy0gnv_2db  (in db-99a074504563992f) + 16  [0x1044ecad0]  function.rs:250
+    +               1702 _RNvCsd5HTyoy0gnv_2db4main  (in db-99a074504563992f) + 184  [0x1044e3400]  db.rs:1
+    +                 1702 _RNvCs2RUZSv3kVac_4test18test_main_env_args  (in db-99a074504563992f) + 80  [0x1045220e4]
+    +                   1702 _RNvCs2RUZSv3kVac_4test15test_main_inner  (in db-99a074504563992f) + 788  [0x1045217cc]
+    +                     1702 _RNvNtCs2RUZSv3kVac_4test7console17run_tests_console  (in db-99a074504563992f) + 6496  [0x104531d18]
+    +                       1702 _RNvMs1_NtNtNtCsiIUrW5dXA8f_3std4sync4mpmc4listINtB5_7ChannelNtNtCs2RUZSv3kVac_4test5event13CompletedTestE4recvB10_  (in db-99a074504563992f) + 428  [0x104527bac]
+    +                         1702 _RNCNvMs1_NtNtNtCsiIUrW5dXA8f_3std4sync4mpmc4listINtB7_7ChannelNtNtCs2RUZSv3kVac_4test5event13CompletedTestE4recvs_0B12_  (in db-99a074504563992f) + 248  [0x10451ea9c]
+    +                           1702 _RNvMs_NtNtCsiIUrW5dXA8f_3std6thread6threadNtB4_6Thread4park  (in db-99a074504563992f) + 48  [0x1045af97c]
+    +                             1702 _dispatch_semaphore_wait_slow  (in libdispatch.dylib) + 132  [0x195b42b28]
+    +                               1702 _dispatch_sema4_wait  (in libdispatch.dylib) + 28  [0x195b4249c]
+    +                                 1702 semaphore_wait_trap  (in libsystem_kernel.dylib) + 8  [0x195cbcb9c]
+    1702 Thread_2733446: concurrent_sets_do_not_interleave
+    + 1702 thread_start  (in libsystem_pthread.dylib) + 8  [0x195cfccec]
+    +   1702 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x195d01d00]
+    +     1702 _RNvNvMs0_NtNtNtCsiIUrW5dXA8f_3std3sys6thread4unixNtB7_6Thread3new12thread_start  (in db-99a074504563992f) + 452  [0x1045c1944]
+    +       1702 _RNSNvYNCINvNtNtCsiIUrW5dXA8f_3std6thread9lifecycle15spawn_uncheckedNCNvCs2RUZSv3kVac_4test8run_tests_0uEs_0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_once6vtableB17_  (in db-99a074504563992f) + 64  [0x104520358]
+    +         1702 _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceNCNvCs2RUZSv3kVac_4test8run_tests_0uEB1b_  (in db-99a074504563992f) + 124  [0x104519c04]
+    +           1702 _RNCNvCs2RUZSv3kVac_4test8run_test0B3_  (in db-99a074504563992f) + 956  [0x10451e03c]
+    +             1702 _RINvCs2RUZSv3kVac_4test28___rust_begin_short_backtraceINtNtCsdDfKYYNBWXF_4core6result6ResultuNtNtCse4BVKT5o98i_5alloc6string6StringEFEBQ_EB2_  (in db-99a074504563992f) + 24  [0x104512dd8]
+    +               1702 _RNvYNCNvCsd5HTyoy0gnv_2db33concurrent_sets_do_not_interleave0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_onceB6_  (in db-99a074504563992f) + 20  [0x1044ece68]  function.rs:250
+    +                 1702 _RNCNvCsd5HTyoy0gnv_2db33concurrent_sets_do_not_interleave0B3_  (in db-99a074504563992f) + 20  [0x1044cf9f0]  db.rs:202
+    +                   1702 _RNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave  (in db-99a074504563992f) + 156  [0x1044e404c]  db.rs:201
+    +                     1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime8block_onNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0EBZ_  (in db-99a074504563992f) + 96  [0x1044fcf8c]  lib.rs:175
+    +                       1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0EB13_  (in db-99a074504563992f) + 132  [0x1044fb738]  lib.rs:185
+    +                         1702 _RINvNtCsiIUrW5dXA8f_3std5panic12catch_unwindINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1P_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0E0EuEB2O_  (in db-99a074504563992f) + 92  [0x1044e2768]  panic.rs:359
+    +                           1702 __rust_try  (in db-99a074504563992f) + 32  [0x1044e283c]
+    +                             1702 _RINvNvNtCsiIUrW5dXA8f_3std9panicking12catch_unwind7do_callINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB23_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0E0EuEB32_  (in db-99a074504563992f) + 48  [0x1044cecec]  panicking.rs:573
+    +                               1702 _RNvXsm_NtNtCsdDfKYYNBWXF_4core5panic11unwind_safeINtB5_16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1h_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0E0EINtNtNtB9_3ops8function6FnOnceuE9call_onceB2g_  (in db-99a074504563992f) + 48  [0x1044bfe00]  unwind_safe.rs:272
+    +                                 1702 _RNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB7_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0E0B15_  (in db-99a074504563992f) + 68  [0x1044fd80c]  lib.rs:186
+    +                                   1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime5enteruNCNCINvB2_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0E00EB1k_  (in db-99a074504563992f) + 60  [0x1044fc40c]  lib.rs:153
+    +                                     1702 _RINvMs_Cs5tytYbPiKTS_10scoped_tlsINtB5_9ScopedKeyNtCs3Vyc8TYHHxf_14compio_runtime7RuntimeE3setNCNCINvMs_BN_BL_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0E00uEB21_  (in db-99a074504563992f) + 148  [0x1044c2fbc]  lib.rs:137
+    +                                       1702 _RNCNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB9_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_33concurrent_sets_do_not_interleave0E00B17_  (in db-99a074504563992f) + 432  [0x1044ff0f8]  lib.rs:199
+    +                                         1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime4poll  (in db-99a074504563992f) + 44  [0x104551cb8]
+    +                                           1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime9poll_with  (in db-99a074504563992f) + 112  [0x104551e70]
+    +                                             1702 _RNvMs1_CsbDO8gF7F8EJ_13compio_driverNtB5_8Proactor4poll  (in db-99a074504563992f) + 12  [0x10457057c]
+    +                                               1702 _RNvMs0_NtNtNtCsbDO8gF7F8EJ_13compio_driver3sys6driver4pollNtB5_6Driver4poll  (in db-99a074504563992f) + 148  [0x104577bc0]
+    +                                                 1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller4wait  (in db-99a074504563992f) + 52  [0x104583ddc]
+    +                                                   1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller9wait_impl  (in db-99a074504563992f) + 116  [0x104583f08]
+    +                                                     1702 _RNvMNtCscHzsIoIsnQj_7polling6kqueueNtB2_6Poller13wait_deadline  (in db-99a074504563992f) + 168  [0x104582dcc]
+    +                                                       1702 _RINvNtNtCslOp5IfsWg9G_6rustix5event6kqueue15kevent_timespecRNtNtNtNtCsiIUrW5dXA8f_3std2os2fd5owned7OwnedFdINtNtB6_6buffer13SpareCapacityNtB2_5EventEECscHzsIoIsnQj_7polling  (in db-99a074504563992f) + 116  [0x104582348]
+    +                                                         1702 _RNvNtNtNtCslOp5IfsWg9G_6rustix7backend5event8syscalls6kevent  (in db-99a074504563992f) + 292  [0x104588e40]
+    +                                                           1702 kevent  (in libsystem_kernel.dylib) + 8  [0x195cc2fcc]
+    1702 Thread_2733447: garbage_lines_ignored
+    + 1702 thread_start  (in libsystem_pthread.dylib) + 8  [0x195cfccec]
+    +   1702 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x195d01d00]
+    +     1702 _RNvNvMs0_NtNtNtCsiIUrW5dXA8f_3std3sys6thread4unixNtB7_6Thread3new12thread_start  (in db-99a074504563992f) + 452  [0x1045c1944]
+    +       1702 _RNSNvYNCINvNtNtCsiIUrW5dXA8f_3std6thread9lifecycle15spawn_uncheckedNCNvCs2RUZSv3kVac_4test8run_tests_0uEs_0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_once6vtableB17_  (in db-99a074504563992f) + 64  [0x104520358]
+    +         1702 _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceNCNvCs2RUZSv3kVac_4test8run_tests_0uEB1b_  (in db-99a074504563992f) + 124  [0x104519c04]
+    +           1702 _RNCNvCs2RUZSv3kVac_4test8run_test0B3_  (in db-99a074504563992f) + 956  [0x10451e03c]
+    +             1702 _RINvCs2RUZSv3kVac_4test28___rust_begin_short_backtraceINtNtCsdDfKYYNBWXF_4core6result6ResultuNtNtCse4BVKT5o98i_5alloc6string6StringEFEBQ_EB2_  (in db-99a074504563992f) + 24  [0x104512dd8]
+    +               1702 _RNvYNCNvCsd5HTyoy0gnv_2db21garbage_lines_ignored0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_onceB6_  (in db-99a074504563992f) + 20  [0x1044ecd00]  function.rs:250
+    +                 1702 _RNCNvCsd5HTyoy0gnv_2db21garbage_lines_ignored0B3_  (in db-99a074504563992f) + 20  [0x1044cf860]  db.rs:58
+    +                   1702 _RNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored  (in db-99a074504563992f) + 160  [0x1044e36f0]  db.rs:57
+    +                     1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime8block_onNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0EBZ_  (in db-99a074504563992f) + 96  [0x1044fc9d8]  lib.rs:175
+    +                       1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0EB13_  (in db-99a074504563992f) + 132  [0x1044faba8]  lib.rs:185
+    +                         1702 _RINvNtCsiIUrW5dXA8f_3std5panic12catch_unwindINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1P_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0E0EuEB2O_  (in db-99a074504563992f) + 92  [0x1044e2178]  panic.rs:359
+    +                           1702 __rust_try  (in db-99a074504563992f) + 32  [0x1044e283c]
+    +                             1702 _RINvNvNtCsiIUrW5dXA8f_3std9panicking12catch_unwind7do_callINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB23_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0E0EuEB32_  (in db-99a074504563992f) + 48  [0x1044cea58]  panicking.rs:573
+    +                               1702 _RNvXsm_NtNtCsdDfKYYNBWXF_4core5panic11unwind_safeINtB5_16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1h_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0E0EINtNtNtB9_3ops8function6FnOnceuE9call_onceB2g_  (in db-99a074504563992f) + 48  [0x1044bfb6c]  unwind_safe.rs:272
+    +                                 1702 _RNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB7_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0E0B15_  (in db-99a074504563992f) + 68  [0x1044fd398]  lib.rs:186
+    +                                   1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime5enteruNCNCINvB2_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0E00EB1k_  (in db-99a074504563992f) + 60  [0x1044fc100]  lib.rs:153
+    +                                     1702 _RINvMs_Cs5tytYbPiKTS_10scoped_tlsINtB5_9ScopedKeyNtCs3Vyc8TYHHxf_14compio_runtime7RuntimeE3setNCNCINvMs_BN_BL_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0E00uEB21_  (in db-99a074504563992f) + 148  [0x1044c2694]  lib.rs:137
+    +                                       1702 _RNCNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB9_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_21garbage_lines_ignored0E00B17_  (in db-99a074504563992f) + 432  [0x1044fddc0]  lib.rs:199
+    +                                         1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime4poll  (in db-99a074504563992f) + 44  [0x104551cb8]
+    +                                           1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime9poll_with  (in db-99a074504563992f) + 112  [0x104551e70]
+    +                                             1702 _RNvMs1_CsbDO8gF7F8EJ_13compio_driverNtB5_8Proactor4poll  (in db-99a074504563992f) + 12  [0x10457057c]
+    +                                               1702 _RNvMs0_NtNtNtCsbDO8gF7F8EJ_13compio_driver3sys6driver4pollNtB5_6Driver4poll  (in db-99a074504563992f) + 148  [0x104577bc0]
+    +                                                 1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller4wait  (in db-99a074504563992f) + 52  [0x104583ddc]
+    +                                                   1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller9wait_impl  (in db-99a074504563992f) + 116  [0x104583f08]
+    +                                                     1702 _RNvMNtCscHzsIoIsnQj_7polling6kqueueNtB2_6Poller13wait_deadline  (in db-99a074504563992f) + 168  [0x104582dcc]
+    +                                                       1702 _RINvNtNtCslOp5IfsWg9G_6rustix5event6kqueue15kevent_timespecRNtNtNtNtCsiIUrW5dXA8f_3std2os2fd5owned7OwnedFdINtNtB6_6buffer13SpareCapacityNtB2_5EventEECscHzsIoIsnQj_7polling  (in db-99a074504563992f) + 116  [0x104582348]
+    +                                                         1702 _RNvNtNtNtCslOp5IfsWg9G_6rustix7backend5event8syscalls6kevent  (in db-99a074504563992f) + 292  [0x104588e40]
+    +                                                           1702 kevent  (in libsystem_kernel.dylib) + 8  [0x195cc2fcc]
+    1702 Thread_2733449: last_write_wins
+    + 1702 thread_start  (in libsystem_pthread.dylib) + 8  [0x195cfccec]
+    +   1702 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x195d01d00]
+    +     1702 _RNvNvMs0_NtNtNtCsiIUrW5dXA8f_3std3sys6thread4unixNtB7_6Thread3new12thread_start  (in db-99a074504563992f) + 452  [0x1045c1944]
+    +       1702 _RNSNvYNCINvNtNtCsiIUrW5dXA8f_3std6thread9lifecycle15spawn_uncheckedNCNvCs2RUZSv3kVac_4test8run_tests_0uEs_0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_once6vtableB17_  (in db-99a074504563992f) + 64  [0x104520358]
+    +         1702 _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceNCNvCs2RUZSv3kVac_4test8run_tests_0uEB1b_  (in db-99a074504563992f) + 124  [0x104519c04]
+    +           1702 _RNCNvCs2RUZSv3kVac_4test8run_test0B3_  (in db-99a074504563992f) + 956  [0x10451e03c]
+    +             1702 _RINvCs2RUZSv3kVac_4test28___rust_begin_short_backtraceINtNtCsdDfKYYNBWXF_4core6result6ResultuNtNtCse4BVKT5o98i_5alloc6string6StringEFEBQ_EB2_  (in db-99a074504563992f) + 24  [0x104512dd8]
+    +               1702 _RNvYNCNvCsd5HTyoy0gnv_2db15last_write_wins0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_onceB6_  (in db-99a074504563992f) + 20  [0x1044eccb8]  function.rs:250
+    +                 1702 _RNCNvCsd5HTyoy0gnv_2db15last_write_wins0B3_  (in db-99a074504563992f) + 20  [0x1044cf810]  db.rs:34
+    +                   1702 _RNvCsd5HTyoy0gnv_2dbs_15last_write_wins  (in db-99a074504563992f) + 160  [0x1044e3510]  db.rs:33
+    +                     1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime8block_onNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0EBZ_  (in db-99a074504563992f) + 96  [0x1044fc8b8]  lib.rs:175
+    +                       1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0EB13_  (in db-99a074504563992f) + 132  [0x1044fa960]  lib.rs:185
+    +                         1702 _RINvNtCsiIUrW5dXA8f_3std5panic12catch_unwindINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1P_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0E0EuEB2O_  (in db-99a074504563992f) + 92  [0x1044e2048]  panic.rs:359
+    +                           1702 __rust_try  (in db-99a074504563992f) + 32  [0x1044e283c]
+    +                             1702 _RINvNvNtCsiIUrW5dXA8f_3std9panicking12catch_unwind7do_callINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB23_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0E0EuEB32_  (in db-99a074504563992f) + 48  [0x1044ce9d8]  panicking.rs:573
+    +                               1702 _RNvXsm_NtNtCsdDfKYYNBWXF_4core5panic11unwind_safeINtB5_16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1h_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0E0EINtNtNtB9_3ops8function6FnOnceuE9call_onceB2g_  (in db-99a074504563992f) + 48  [0x1044bfaec]  unwind_safe.rs:272
+    +                                 1702 _RNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB7_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0E0B15_  (in db-99a074504563992f) + 68  [0x1044fd2b8]  lib.rs:186
+    +                                   1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime5enteruNCNCINvB2_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0E00EB1k_  (in db-99a074504563992f) + 60  [0x1044fc068]  lib.rs:153
+    +                                     1702 _RINvMs_Cs5tytYbPiKTS_10scoped_tlsINtB5_9ScopedKeyNtCs3Vyc8TYHHxf_14compio_runtime7RuntimeE3setNCNCINvMs_BN_BL_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0E00uEB21_  (in db-99a074504563992f) + 148  [0x1044c24c4]  lib.rs:137
+    +                                       1702 _RNCNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB9_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_15last_write_wins0E00B17_  (in db-99a074504563992f) + 432  [0x1044fd9e8]  lib.rs:199
+    +                                         1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime4poll  (in db-99a074504563992f) + 44  [0x104551cb8]
+    +                                           1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime9poll_with  (in db-99a074504563992f) + 112  [0x104551e70]
+    +                                             1702 _RNvMs1_CsbDO8gF7F8EJ_13compio_driverNtB5_8Proactor4poll  (in db-99a074504563992f) + 12  [0x10457057c]
+    +                                               1702 _RNvMs0_NtNtNtCsbDO8gF7F8EJ_13compio_driver3sys6driver4pollNtB5_6Driver4poll  (in db-99a074504563992f) + 148  [0x104577bc0]
+    +                                                 1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller4wait  (in db-99a074504563992f) + 52  [0x104583ddc]
+    +                                                   1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller9wait_impl  (in db-99a074504563992f) + 116  [0x104583f08]
+    +                                                     1702 _RNvMNtCscHzsIoIsnQj_7polling6kqueueNtB2_6Poller13wait_deadline  (in db-99a074504563992f) + 168  [0x104582dcc]
+    +                                                       1702 _RINvNtNtCslOp5IfsWg9G_6rustix5event6kqueue15kevent_timespecRNtNtNtNtCsiIUrW5dXA8f_3std2os2fd5owned7OwnedFdINtNtB6_6buffer13SpareCapacityNtB2_5EventEECscHzsIoIsnQj_7polling  (in db-99a074504563992f) + 116  [0x104582348]
+    +                                                         1702 _RNvNtNtNtCslOp5IfsWg9G_6rustix7backend5event8syscalls6kevent  (in db-99a074504563992f) + 292  [0x104588e40]
+    +                                                           1702 kevent  (in libsystem_kernel.dylib) + 8  [0x195cc2fcc]
+    1702 Thread_2733450: long_line_cross_buffer
+    + 1702 thread_start  (in libsystem_pthread.dylib) + 8  [0x195cfccec]
+    +   1702 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x195d01d00]
+    +     1702 _RNvNvMs0_NtNtNtCsiIUrW5dXA8f_3std3sys6thread4unixNtB7_6Thread3new12thread_start  (in db-99a074504563992f) + 452  [0x1045c1944]
+    +       1702 _RNSNvYNCINvNtNtCsiIUrW5dXA8f_3std6thread9lifecycle15spawn_uncheckedNCNvCs2RUZSv3kVac_4test8run_tests_0uEs_0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_once6vtableB17_  (in db-99a074504563992f) + 64  [0x104520358]
+    +         1702 _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceNCNvCs2RUZSv3kVac_4test8run_tests_0uEB1b_  (in db-99a074504563992f) + 124  [0x104519c04]
+    +           1702 _RNCNvCs2RUZSv3kVac_4test8run_test0B3_  (in db-99a074504563992f) + 956  [0x10451e03c]
+    +             1702 _RINvCs2RUZSv3kVac_4test28___rust_begin_short_backtraceINtNtCsdDfKYYNBWXF_4core6result6ResultuNtNtCse4BVKT5o98i_5alloc6string6StringEFEBQ_EB2_  (in db-99a074504563992f) + 24  [0x104512dd8]
+    +               1702 _RNvYNCNvCsd5HTyoy0gnv_2db22long_line_cross_buffer0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_onceB6_  (in db-99a074504563992f) + 20  [0x1044ecd48]  function.rs:250
+    +                 1702 _RNCNvCsd5HTyoy0gnv_2db22long_line_cross_buffer0B3_  (in db-99a074504563992f) + 20  [0x1044cf8b0]  db.rs:71
+    +                   1702 _RNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer  (in db-99a074504563992f) + 160  [0x1044e38d0]  db.rs:70
+    +                     1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime8block_onNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0EBZ_  (in db-99a074504563992f) + 96  [0x1044fcaf8]  lib.rs:175
+    +                       1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0EB13_  (in db-99a074504563992f) + 132  [0x1044fadf0]  lib.rs:185
+    +                         1702 _RINvNtCsiIUrW5dXA8f_3std5panic12catch_unwindINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1P_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0E0EuEB2O_  (in db-99a074504563992f) + 92  [0x1044e22a8]  panic.rs:359
+    +                           1702 __rust_try  (in db-99a074504563992f) + 32  [0x1044e283c]
+    +                             1702 _RINvNvNtCsiIUrW5dXA8f_3std9panicking12catch_unwind7do_callINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB23_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0E0EuEB32_  (in db-99a074504563992f) + 48  [0x1044cead8]  panicking.rs:573
+    +                               1702 _RNvXsm_NtNtCsdDfKYYNBWXF_4core5panic11unwind_safeINtB5_16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1h_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0E0EINtNtNtB9_3ops8function6FnOnceuE9call_onceB2g_  (in db-99a074504563992f) + 48  [0x1044bfbec]  unwind_safe.rs:272
+    +                                 1702 _RNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB7_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0E0B15_  (in db-99a074504563992f) + 68  [0x1044fd478]  lib.rs:186
+    +                                   1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime5enteruNCNCINvB2_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0E00EB1k_  (in db-99a074504563992f) + 60  [0x1044fc198]  lib.rs:153
+    +                                     1702 _RINvMs_Cs5tytYbPiKTS_10scoped_tlsINtB5_9ScopedKeyNtCs3Vyc8TYHHxf_14compio_runtime7RuntimeE3setNCNCINvMs_BN_BL_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0E00uEB21_  (in db-99a074504563992f) + 148  [0x1044c2864]  lib.rs:137
+    +                                       1702 _RNCNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB9_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22long_line_cross_buffer0E00B17_  (in db-99a074504563992f) + 432  [0x1044fe198]  lib.rs:199
+    +                                         1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime4poll  (in db-99a074504563992f) + 44  [0x104551cb8]
+    +                                           1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime9poll_with  (in db-99a074504563992f) + 112  [0x104551e70]
+    +                                             1702 _RNvMs1_CsbDO8gF7F8EJ_13compio_driverNtB5_8Proactor4poll  (in db-99a074504563992f) + 12  [0x10457057c]
+    +                                               1702 _RNvMs0_NtNtNtCsbDO8gF7F8EJ_13compio_driver3sys6driver4pollNtB5_6Driver4poll  (in db-99a074504563992f) + 148  [0x104577bc0]
+    +                                                 1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller4wait  (in db-99a074504563992f) + 52  [0x104583ddc]
+    +                                                   1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller9wait_impl  (in db-99a074504563992f) + 116  [0x104583f08]
+    +                                                     1702 _RNvMNtCscHzsIoIsnQj_7polling6kqueueNtB2_6Poller13wait_deadline  (in db-99a074504563992f) + 168  [0x104582dcc]
+    +                                                       1702 _RINvNtNtCslOp5IfsWg9G_6rustix5event6kqueue15kevent_timespecRNtNtNtNtCsiIUrW5dXA8f_3std2os2fd5owned7OwnedFdINtNtB6_6buffer13SpareCapacityNtB2_5EventEECscHzsIoIsnQj_7polling  (in db-99a074504563992f) + 116  [0x104582348]
+    +                                                         1702 _RNvNtNtNtCslOp5IfsWg9G_6rustix7backend5event8syscalls6kevent  (in db-99a074504563992f) + 292  [0x104588e40]
+    +                                                           1702 kevent  (in libsystem_kernel.dylib) + 8  [0x195cc2fcc]
+    1702 Thread_2733451: prefix_lines_roundtrip
+    + 1702 thread_start  (in libsystem_pthread.dylib) + 8  [0x195cfccec]
+    +   1702 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x195d01d00]
+    +     1702 _RNvNvMs0_NtNtNtCsiIUrW5dXA8f_3std3sys6thread4unixNtB7_6Thread3new12thread_start  (in db-99a074504563992f) + 452  [0x1045c1944]
+    +       1702 _RNSNvYNCINvNtNtCsiIUrW5dXA8f_3std6thread9lifecycle15spawn_uncheckedNCNvCs2RUZSv3kVac_4test8run_tests_0uEs_0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_once6vtableB17_  (in db-99a074504563992f) + 64  [0x104520358]
+    +         1702 _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceNCNvCs2RUZSv3kVac_4test8run_tests_0uEB1b_  (in db-99a074504563992f) + 124  [0x104519c04]
+    +           1702 _RNCNvCs2RUZSv3kVac_4test8run_test0B3_  (in db-99a074504563992f) + 956  [0x10451e03c]
+    +             1702 _RINvCs2RUZSv3kVac_4test28___rust_begin_short_backtraceINtNtCsdDfKYYNBWXF_4core6result6ResultuNtNtCse4BVKT5o98i_5alloc6string6StringEFEBQ_EB2_  (in db-99a074504563992f) + 24  [0x104512dd8]
+    +               1702 _RNvYNCNvCsd5HTyoy0gnv_2db22prefix_lines_roundtrip0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_onceB6_  (in db-99a074504563992f) + 20  [0x1044ecd6c]  function.rs:250
+    +                 1702 _RNCNvCsd5HTyoy0gnv_2db22prefix_lines_roundtrip0B3_  (in db-99a074504563992f) + 20  [0x1044cf8d8]  db.rs:48
+    +                   1702 _RNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip  (in db-99a074504563992f) + 160  [0x1044e39c0]  db.rs:47
+    +                     1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime8block_onNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0EBZ_  (in db-99a074504563992f) + 96  [0x1044fcb88]  lib.rs:175
+    +                       1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0EB13_  (in db-99a074504563992f) + 132  [0x1044faf14]  lib.rs:185
+    +                         1702 _RINvNtCsiIUrW5dXA8f_3std5panic12catch_unwindINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1P_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0E0EuEB2O_  (in db-99a074504563992f) + 92  [0x1044e2340]  panic.rs:359
+    +                           1702 __rust_try  (in db-99a074504563992f) + 32  [0x1044e283c]
+    +                             1702 _RINvNvNtCsiIUrW5dXA8f_3std9panicking12catch_unwind7do_callINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB23_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0E0EuEB32_  (in db-99a074504563992f) + 48  [0x1044ceb18]  panicking.rs:573
+    +                               1702 _RNvXsm_NtNtCsdDfKYYNBWXF_4core5panic11unwind_safeINtB5_16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1h_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0E0EINtNtNtB9_3ops8function6FnOnceuE9call_onceB2g_  (in db-99a074504563992f) + 48  [0x1044bfc2c]  unwind_safe.rs:272
+    +                                 1702 _RNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB7_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0E0B15_  (in db-99a074504563992f) + 68  [0x1044fd4e8]  lib.rs:186
+    +                                   1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime5enteruNCNCINvB2_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0E00EB1k_  (in db-99a074504563992f) + 60  [0x1044fc1e4]  lib.rs:153
+    +                                     1702 _RINvMs_Cs5tytYbPiKTS_10scoped_tlsINtB5_9ScopedKeyNtCs3Vyc8TYHHxf_14compio_runtime7RuntimeE3setNCNCINvMs_BN_BL_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0E00uEB21_  (in db-99a074504563992f) + 152  [0x1044c2950]  lib.rs:137
+    +                                       1702 _RNCNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB9_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_22prefix_lines_roundtrip0E00B17_  (in db-99a074504563992f) + 432  [0x1044fe384]  lib.rs:199
+    +                                         1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime4poll  (in db-99a074504563992f) + 44  [0x104551cb8]
+    +                                           1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime9poll_with  (in db-99a074504563992f) + 112  [0x104551e70]
+    +                                             1702 _RNvMs1_CsbDO8gF7F8EJ_13compio_driverNtB5_8Proactor4poll  (in db-99a074504563992f) + 12  [0x10457057c]
+    +                                               1702 _RNvMs0_NtNtNtCsbDO8gF7F8EJ_13compio_driver3sys6driver4pollNtB5_6Driver4poll  (in db-99a074504563992f) + 148  [0x104577bc0]
+    +                                                 1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller4wait  (in db-99a074504563992f) + 52  [0x104583ddc]
+    +                                                   1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller9wait_impl  (in db-99a074504563992f) + 116  [0x104583f08]
+    +                                                     1702 _RNvMNtCscHzsIoIsnQj_7polling6kqueueNtB2_6Poller13wait_deadline  (in db-99a074504563992f) + 168  [0x104582dcc]
+    +                                                       1702 _RINvNtNtCslOp5IfsWg9G_6rustix5event6kqueue15kevent_timespecRNtNtNtNtCsiIUrW5dXA8f_3std2os2fd5owned7OwnedFdINtNtB6_6buffer13SpareCapacityNtB2_5EventEECscHzsIoIsnQj_7polling  (in db-99a074504563992f) + 116  [0x104582348]
+    +                                                         1702 _RNvNtNtNtCslOp5IfsWg9G_6rustix7backend5event8syscalls6kevent  (in db-99a074504563992f) + 292  [0x104588e40]
+    +                                                           1702 kevent  (in libsystem_kernel.dylib) + 8  [0x195cc2fcc]
+    1702 Thread_2733452: second_instance_rejected
+    + 1702 thread_start  (in libsystem_pthread.dylib) + 8  [0x195cfccec]
+    +   1702 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x195d01d00]
+    +     1702 _RNvNvMs0_NtNtNtCsiIUrW5dXA8f_3std3sys6thread4unixNtB7_6Thread3new12thread_start  (in db-99a074504563992f) + 452  [0x1045c1944]
+    +       1702 _RNSNvYNCINvNtNtCsiIUrW5dXA8f_3std6thread9lifecycle15spawn_uncheckedNCNvCs2RUZSv3kVac_4test8run_tests_0uEs_0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_once6vtableB17_  (in db-99a074504563992f) + 64  [0x104520358]
+    +         1702 _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceNCNvCs2RUZSv3kVac_4test8run_tests_0uEB1b_  (in db-99a074504563992f) + 124  [0x104519c04]
+    +           1702 _RNCNvCs2RUZSv3kVac_4test8run_test0B3_  (in db-99a074504563992f) + 956  [0x10451e03c]
+    +             1702 _RINvCs2RUZSv3kVac_4test28___rust_begin_short_backtraceINtNtCsdDfKYYNBWXF_4core6result6ResultuNtNtCse4BVKT5o98i_5alloc6string6StringEFEBQ_EB2_  (in db-99a074504563992f) + 24  [0x104512dd8]
+    +               1702 _RNvYNCNvCsd5HTyoy0gnv_2db24second_instance_rejected0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_onceB6_  (in db-99a074504563992f) + 20  [0x1044ecdb4]  function.rs:250
+    +                 1702 _RNCNvCsd5HTyoy0gnv_2db24second_instance_rejected0B3_  (in db-99a074504563992f) + 20  [0x1044cf928]  db.rs:229
+    +                   1702 _RNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected  (in db-99a074504563992f) + 160  [0x1044e3ba0]  db.rs:228
+    +                     1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime8block_onNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0EBZ_  (in db-99a074504563992f) + 96  [0x1044fccac]  lib.rs:175
+    +                       1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0EB13_  (in db-99a074504563992f) + 132  [0x1044fb164]  lib.rs:185
+    +                         1702 _RINvNtCsiIUrW5dXA8f_3std5panic12catch_unwindINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1P_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0E0EuEB2O_  (in db-99a074504563992f) + 92  [0x1044e2470]  panic.rs:359
+    +                           1702 __rust_try  (in db-99a074504563992f) + 32  [0x1044e283c]
+    +                             1702 _RINvNvNtCsiIUrW5dXA8f_3std9panicking12catch_unwind7do_callINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB23_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0E0EuEB32_  (in db-99a074504563992f) + 48  [0x1044ceb9c]  panicking.rs:573
+    +                               1702 _RNvXsm_NtNtCsdDfKYYNBWXF_4core5panic11unwind_safeINtB5_16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1h_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0E0EINtNtNtB9_3ops8function6FnOnceuE9call_onceB2g_  (in db-99a074504563992f) + 48  [0x1044bfcb0]  unwind_safe.rs:272
+    +                                 1702 _RNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB7_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0E0B15_  (in db-99a074504563992f) + 68  [0x1044fd5cc]  lib.rs:186
+    +                                   1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime5enteruNCNCINvB2_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0E00EB1k_  (in db-99a074504563992f) + 60  [0x1044fc280]  lib.rs:153
+    +                                     1702 _RINvMs_Cs5tytYbPiKTS_10scoped_tlsINtB5_9ScopedKeyNtCs3Vyc8TYHHxf_14compio_runtime7RuntimeE3setNCNCINvMs_BN_BL_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0E00uEB21_  (in db-99a074504563992f) + 148  [0x1044c2b24]  lib.rs:137
+    +                                       1702 _RNCNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB9_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_24second_instance_rejected0E00B17_  (in db-99a074504563992f) + 432  [0x1044fe75c]  lib.rs:199
+    +                                         1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime4poll  (in db-99a074504563992f) + 44  [0x104551cb8]
+    +                                           1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime9poll_with  (in db-99a074504563992f) + 112  [0x104551e70]
+    +                                             1702 _RNvMs1_CsbDO8gF7F8EJ_13compio_driverNtB5_8Proactor4poll  (in db-99a074504563992f) + 12  [0x10457057c]
+    +                                               1702 _RNvMs0_NtNtNtCsbDO8gF7F8EJ_13compio_driver3sys6driver4pollNtB5_6Driver4poll  (in db-99a074504563992f) + 148  [0x104577bc0]
+    +                                                 1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller4wait  (in db-99a074504563992f) + 52  [0x104583ddc]
+    +                                                   1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller9wait_impl  (in db-99a074504563992f) + 116  [0x104583f08]
+    +                                                     1702 _RNvMNtCscHzsIoIsnQj_7polling6kqueueNtB2_6Poller13wait_deadline  (in db-99a074504563992f) + 168  [0x104582dcc]
+    +                                                       1702 _RINvNtNtCslOp5IfsWg9G_6rustix5event6kqueue15kevent_timespecRNtNtNtNtCsiIUrW5dXA8f_3std2os2fd5owned7OwnedFdINtNtB6_6buffer13SpareCapacityNtB2_5EventEECscHzsIoIsnQj_7polling  (in db-99a074504563992f) + 116  [0x104582348]
+    +                                                         1702 _RNvNtNtNtCslOp5IfsWg9G_6rustix7backend5event8syscalls6kevent  (in db-99a074504563992f) + 292  [0x104588e40]
+    +                                                           1702 kevent  (in libsystem_kernel.dylib) + 8  [0x195cc2fcc]
+    1702 Thread_2733462: set_get_roundtrip
+      1702 thread_start  (in libsystem_pthread.dylib) + 8  [0x195cfccec]
+        1702 _pthread_start  (in libsystem_pthread.dylib) + 136  [0x195d01d00]
+          1702 _RNvNvMs0_NtNtNtCsiIUrW5dXA8f_3std3sys6thread4unixNtB7_6Thread3new12thread_start  (in db-99a074504563992f) + 452  [0x1045c1944]
+            1702 _RNSNvYNCINvNtNtCsiIUrW5dXA8f_3std6thread9lifecycle15spawn_uncheckedNCNvCs2RUZSv3kVac_4test8run_tests_0uEs_0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_once6vtableB17_  (in db-99a074504563992f) + 64  [0x104520358]
+              1702 _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceNCNvCs2RUZSv3kVac_4test8run_tests_0uEB1b_  (in db-99a074504563992f) + 124  [0x104519c04]
+                1702 _RNCNvCs2RUZSv3kVac_4test8run_test0B3_  (in db-99a074504563992f) + 956  [0x10451e03c]
+                  1702 _RINvCs2RUZSv3kVac_4test28___rust_begin_short_backtraceINtNtCsdDfKYYNBWXF_4core6result6ResultuNtNtCse4BVKT5o98i_5alloc6string6StringEFEBQ_EB2_  (in db-99a074504563992f) + 24  [0x104512dd8]
+                    1702 _RNvYNCNvCsd5HTyoy0gnv_2db17set_get_roundtrip0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_onceB6_  (in db-99a074504563992f) + 20  [0x1044eccdc]  function.rs:250
+                      1702 _RNCNvCsd5HTyoy0gnv_2db17set_get_roundtrip0B3_  (in db-99a074504563992f) + 20  [0x1044cf838]  db.rs:15
+                        1702 _RNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip  (in db-99a074504563992f) + 160  [0x1044e3600]  db.rs:14
+                          1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime8block_onNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0EBZ_  (in db-99a074504563992f) + 96  [0x1044fc948]  lib.rs:175
+                            1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0EB13_  (in db-99a074504563992f) + 132  [0x1044faa84]  lib.rs:185
+                              1702 _RINvNtCsiIUrW5dXA8f_3std5panic12catch_unwindINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1P_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0E0EuEB2O_  (in db-99a074504563992f) + 92  [0x1044e20e0]  panic.rs:359
+                                1702 __rust_try  (in db-99a074504563992f) + 32  [0x1044e283c]
+                                  1702 _RINvNvNtCsiIUrW5dXA8f_3std9panicking12catch_unwind7do_callINtNtNtCsdDfKYYNBWXF_4core5panic11unwind_safe16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB23_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0E0EuEB32_  (in db-99a074504563992f) + 48  [0x1044cea18]  panicking.rs:573
+                                    1702 _RNvXsm_NtNtCsdDfKYYNBWXF_4core5panic11unwind_safeINtB5_16AssertUnwindSafeNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB1h_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0E0EINtNtNtB9_3ops8function6FnOnceuE9call_onceB2g_  (in db-99a074504563992f) + 48  [0x1044bfb2c]  unwind_safe.rs:272
+                                      1702 _RNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB7_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0E0B15_  (in db-99a074504563992f) + 68  [0x1044fd328]  lib.rs:186
+                                        1702 _RINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB5_7Runtime5enteruNCNCINvB2_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0E00EB1k_  (in db-99a074504563992f) + 60  [0x1044fc0b4]  lib.rs:153
+                                          1702 _RINvMs_Cs5tytYbPiKTS_10scoped_tlsINtB5_9ScopedKeyNtCs3Vyc8TYHHxf_14compio_runtime7RuntimeE3setNCNCINvMs_BN_BL_11block_on_atNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0E00uEB21_  (in db-99a074504563992f) + 148  [0x1044c25ac]  lib.rs:137
+                                            1702 _RNCNCINvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB9_7Runtime11block_on_atNCNvCsd5HTyoy0gnv_2dbs_17set_get_roundtrip0E00B17_  (in db-99a074504563992f) + 432  [0x1044fdbd4]  lib.rs:199
+                                              1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime4poll  (in db-99a074504563992f) + 44  [0x104551cb8]
+                                                1702 _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime9poll_with  (in db-99a074504563992f) + 112  [0x104551e70]
+                                                  1702 _RNvMs1_CsbDO8gF7F8EJ_13compio_driverNtB5_8Proactor4poll  (in db-99a074504563992f) + 12  [0x10457057c]
+                                                    1702 _RNvMs0_NtNtNtCsbDO8gF7F8EJ_13compio_driver3sys6driver4pollNtB5_6Driver4poll  (in db-99a074504563992f) + 148  [0x104577bc0]
+                                                      1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller4wait  (in db-99a074504563992f) + 52  [0x104583ddc]
+                                                        1702 _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller9wait_impl  (in db-99a074504563992f) + 116  [0x104583f08]
+                                                          1702 _RNvMNtCscHzsIoIsnQj_7polling6kqueueNtB2_6Poller13wait_deadline  (in db-99a074504563992f) + 168  [0x104582dcc]
+                                                            1702 _RINvNtNtCslOp5IfsWg9G_6rustix5event6kqueue15kevent_timespecRNtNtNtNtCsiIUrW5dXA8f_3std2os2fd5owned7OwnedFdINtNtB6_6buffer13SpareCapacityNtB2_5EventEECscHzsIoIsnQj_7polling  (in db-99a074504563992f) + 116  [0x104582348]
+                                                              1702 _RNvNtNtNtCslOp5IfsWg9G_6rustix7backend5event8syscalls6kevent  (in db-99a074504563992f) + 292  [0x104588e40]
+                                                                1702 kevent  (in libsystem_kernel.dylib) + 8  [0x195cc2fcc]
+
+Total number in stack (recursive counted multiple, when >=5):
+        7       _RINvCs2RUZSv3kVac_4test28___rust_begin_short_backtraceINtNtCsdDfKYYNBWXF_4core6result6ResultuNtNtCse4BVKT5o98i_5alloc6string6StringEFEBQ_EB2_  (in db-99a074504563992f) + 24  [0x104512dd8]
+        7       _RINvNtNtCsiIUrW5dXA8f_3std3sys9backtrace28___rust_begin_short_backtraceNCNvCs2RUZSv3kVac_4test8run_tests_0uEB1b_  (in db-99a074504563992f) + 124  [0x104519c04]
+        7       _RINvNtNtCslOp5IfsWg9G_6rustix5event6kqueue15kevent_timespecRNtNtNtNtCsiIUrW5dXA8f_3std2os2fd5owned7OwnedFdINtNtB6_6buffer13SpareCapacityNtB2_5EventEECscHzsIoIsnQj_7polling  (in db-99a074504563992f) + 116  [0x104582348]
+        7       _RNCNvCs2RUZSv3kVac_4test8run_test0B3_  (in db-99a074504563992f) + 956  [0x10451e03c]
+        7       _RNSNvYNCINvNtNtCsiIUrW5dXA8f_3std6thread9lifecycle15spawn_uncheckedNCNvCs2RUZSv3kVac_4test8run_tests_0uEs_0INtNtNtCsdDfKYYNBWXF_4core3ops8function6FnOnceuE9call_once6vtableB17_  (in db-99a074504563992f) + 64  [0x104520358]
+        7       _RNvMNtCscHzsIoIsnQj_7polling6kqueueNtB2_6Poller13wait_deadline  (in db-99a074504563992f) + 168  [0x104582dcc]
+        7       _RNvMs0_NtNtNtCsbDO8gF7F8EJ_13compio_driver3sys6driver4pollNtB5_6Driver4poll  (in db-99a074504563992f) + 148  [0x104577bc0]
+        7       _RNvMs1_CsbDO8gF7F8EJ_13compio_driverNtB5_8Proactor4poll  (in db-99a074504563992f) + 12  [0x10457057c]
+        7       _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime4poll  (in db-99a074504563992f) + 44  [0x104551cb8]
+        7       _RNvMs_Cs3Vyc8TYHHxf_14compio_runtimeNtB4_7Runtime9poll_with  (in db-99a074504563992f) + 112  [0x104551e70]
+        7       _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller4wait  (in db-99a074504563992f) + 52  [0x104583ddc]
+        7       _RNvMs_CscHzsIoIsnQj_7pollingNtB4_6Poller9wait_impl  (in db-99a074504563992f) + 116  [0x104583f08]
+        7       _RNvNtNtNtCslOp5IfsWg9G_6rustix7backend5event8syscalls6kevent  (in db-99a074504563992f) + 292  [0x104588e40]
+        7       _RNvNvMs0_NtNtNtCsiIUrW5dXA8f_3std3sys6thread4unixNtB7_6Thread3new12thread_start  (in db-99a074504563992f) + 452  [0x1045c1944]
+        7       __rust_try  (in db-99a074504563992f) + 32  [0x1044e283c]
+        7       _pthread_start  (in libsystem_pthread.dylib) + 136  [0x195d01d00]
+        7       kevent  (in libsystem_kernel.dylib) + 0  [0x195cc2fc4]
+        7       thread_start  (in libsystem_pthread.dylib) + 8  [0x195cfccec]
+
+Sort by top of stack, same collapsed (when >= 5):
+        kevent  (in libsystem_kernel.dylib)        11914
+        semaphore_wait_trap  (in libsystem_kernel.dylib)        1702
+
+Binary Images:
+       0x1044bc000 -        0x10466b097 +db-99a074504563992f (0) <00F1AA8B-D4D1-319E-A60D-0D7FF1A425A0> /Users/*/db-99a074504563992f
+       0x195878000 -        0x1958c75f7  libobjc.A.dylib (973.1) <C0680DF6-9900-3C29-A071-95A031686EF8> /usr/lib/libobjc.A.dylib
+       0x1958c8000 -        0x1958d223f  libsharedcache.dylib (0) <BBF95357-BEBF-3D89-8900-2BBB14A667C5> /usr/lib/libsharedcache.dylib
+       0x1958d3000 -        0x1958f9d3b  libdyld.dylib (27062) <62863BCA-DD60-3D32-A9DB-89099BA6F3D7> /usr/lib/system/libdyld.dylib
+       0x1958fa000 -        0x1959b96e3  dyld (1.0.0 - 27062) <D341DDCB-7969-3A9C-8E03-0CF4751398A9> /usr/lib/dyld
+       0x1959ba000 -        0x1959bd01f  libsystem_blocks.dylib (98.1) <6F304731-D95D-3501-B4AD-F2934F7F2446> /usr/lib/system/libsystem_blocks.dylib
+       0x1959be000 -        0x195a130df  libxpc.dylib (3298.1.1) <0791121F-B5FC-3F84-BF04-115E86D2D882> /usr/lib/system/libxpc.dylib
+       0x195a14000 -        0x195a33c13  libsystem_trace.dylib (1966.1.1) <B48A8E3E-A12A-3342-8321-428B555E965E> /usr/lib/system/libsystem_trace.dylib
+       0x195a34000 -        0x195ae8f27  libcorecrypto.dylib (2109.0.22) <807AA6C9-5D8A-3CA5-B4CE-FACE5296EF6A> /usr/lib/system/libcorecrypto.dylib
+       0x195ae9000 -        0x195b3ec5f  libsystem_malloc.dylib (886.0.8) <2339CB57-FE5A-3154-A206-A76059C749EB> /usr/lib/system/libsystem_malloc.dylib
+       0x195b3f000 -        0x195b8519f  libdispatch.dylib (1605.0.2) <022BF08F-0B3A-3225-9E65-16D1553CE90D> /usr/lib/system/libdispatch.dylib
+       0x195b86000 -        0x195b88d2b  libsystem_featureflags.dylib (108) <20C1CAB2-1F13-3426-8146-9CAE9FF2A33D> /usr/lib/system/libsystem_featureflags.dylib
+       0x195b89000 -        0x195c0bca3  libsystem_c.dylib (1786.0.3) <FBA7B23E-AA60-3A90-9AA4-A7A2E0AD63EE> /usr/lib/system/libsystem_c.dylib
+       0x195c0c000 -        0x195ca1033  libc++.1.dylib (2200.27) <1E9BA4AA-B5DA-3CF3-80AC-4B880049573F> /usr/lib/libc++.1.dylib
+       0x195ca2000 -        0x195cbbeff  libc++abi.dylib (2200.27) <A21743EE-6E1C-3E74-97EA-7AF793DE4BDF> /usr/lib/libc++abi.dylib
+       0x195cbc000 -        0x195cfa9ab  libsystem_kernel.dylib (13432.1.9) <F63BF418-8F75-34A4-AAF1-8CAF2B9B6A05> /usr/lib/system/libsystem_kernel.dylib
+       0x195cfb000 -        0x195d0791b  libsystem_pthread.dylib (553.0.1) <5A1828C3-CBC2-3B85-BD07-C8ED10021A41> /usr/lib/system/libsystem_pthread.dylib
+       0x195d08000 -        0x195d114f3  libsystem_platform.dylib (402.0.1.0.1) <080E4444-A0FB-3913-9756-4E470015F32F> /usr/lib/system/libsystem_platform.dylib
+       0x195d12000 -        0x195d40903  libsystem_info.dylib (603) <BC387AEB-1CEF-3513-92D7-D7F913596711> /usr/lib/system/libsystem_info.dylib
+       0x199e6a000 -        0x199e73b13  libsystem_darwin.dylib (1786.0.3) <4E66C888-993C-3E6A-A8DA-A949C01C5B67> /usr/lib/system/libsystem_darwin.dylib
+       0x19a2c4000 -        0x19a2d5b8b  libsystem_notify.dylib (368) <58FD36D8-37A7-311C-80F2-8E64DD8710CF> /usr/lib/system/libsystem_notify.dylib
+       0x19c421000 -        0x19c43bd93  libsystem_networkextension.dylib (2340.1.2) <22E1D190-486F-324F-ABA4-F36AB841BFE9> /usr/lib/system/libsystem_networkextension.dylib
+       0x19c4c9000 -        0x19c4e0247  libsystem_asl.dylib (409) <B4D449B7-A821-3A9A-8019-E917B291F10A> /usr/lib/system/libsystem_asl.dylib
+       0x19d474000 -        0x19d474f2f  libobjcMsgSend.dylib (973.1) <41179EDE-DC97-3BBE-8848-6400D12C1436> /usr/lib/objc/libobjcMsgSend.dylib
+       0x19e5c0000 -        0x19e5c7edf  libsystem_symptoms.dylib (2394.0.4) <60EE7884-9F4E-3184-A6AC-FA40A7A0297D> /usr/lib/system/libsystem_symptoms.dylib
+       0x1a2958000 -        0x1a2992aeb  libsystem_containermanager.dylib (833.0.8.0.1) <08A57205-555D-3792-8931-9D5B585AF326> /usr/lib/system/libsystem_containermanager.dylib
+       0x1a3fab000 -        0x1a3faf317  libsystem_configuration.dylib (1446) <F3EB66A7-7A24-3AE5-B6E8-9A37BB00F119> /usr/lib/system/libsystem_configuration.dylib
+       0x1a3fb0000 -        0x1a3fb6e03  libsystem_sandbox.dylib (3051.0.52) <1E892B56-092E-3832-BDE3-DCE356D7A4FA> /usr/lib/system/libsystem_sandbox.dylib
+       0x1a5474000 -        0x1a5474f2f  libobjcMsgSend1.dylib (973.1) <B40D9B2A-E1EE-37ED-8004-711A1F263DE1> /usr/lib/objc/libobjcMsgSend1.dylib
+       0x1a5b94000 -        0x1a5b96f93  libquarantine.dylib (217.0.4) <7FD4AE22-86EF-382B-83F5-ADF9336C1160> /usr/lib/system/libquarantine.dylib
+       0x1a62a6000 -        0x1a62ac1e7  libsystem_coreservices.dylib (203) <57248E07-11A5-3857-918E-4A3A63B69FE8> /usr/lib/system/libsystem_coreservices.dylib
+       0x1a686e000 -        0x1a68abb27  libsystem_m.dylib (3326.0.1) <A3FB340F-3ED5-30F4-8B64-9D5860F64D35> /usr/lib/system/libsystem_m.dylib
+       0x1a68ac000 -        0x1a68acb47  libcharset.1.dylib (121) <3C9B584E-740A-3664-A1B0-52E561EA4B0B> /usr/lib/libcharset.1.dylib
+       0x1a68ad000 -        0x1a68b04f7  libmacho.dylib (27062) <50DEADEC-3E99-3519-AFC3-4A3FEB3F14C3> /usr/lib/system/libmacho.dylib
+       0x1a68ca000 -        0x1a68d6707  libcommonCrypto.dylib (600041) <41C99F45-C5E6-39DB-B1F2-A1BEA9D242A4> /usr/lib/system/libcommonCrypto.dylib
+       0x1a68d7000 -        0x1a68e0c87  libunwind.dylib (2200.5) <3070AB81-B082-39E8-8A00-EF88DDE9AC47> /usr/lib/system/libunwind.dylib
+       0x1a68e8000 -        0x1a68f27eb  libcopyfile.dylib (260.0.3) <72D95AF9-BF5E-3A84-81A6-BCC5BDB99857> /usr/lib/system/libcopyfile.dylib
+       0x1a68f3000 -        0x1a68f68bf  libcompiler_rt.dylib (103.4) <DFB5CE7F-A36E-36AA-BECE-1392D3D43607> /usr/lib/system/libcompiler_rt.dylib
+       0x1a68f7000 -        0x1a68fc077  libsystem_collections.dylib (1786.0.3) <1E8022D4-5A37-3A7A-8936-603E6FA88358> /usr/lib/system/libsystem_collections.dylib
+       0x1a68fd000 -        0x1a68fff1f  libsystem_secinit.dylib (182) <DE037464-4C5D-3E96-A33F-2A4557CC6A20> /usr/lib/system/libsystem_secinit.dylib
+       0x1a6900000 -        0x1a690297f  libremovefile.dylib (96) <E6E6DFCF-6B2C-3F30-A59D-816CAB1190CE> /usr/lib/system/libremovefile.dylib
+       0x1a6903000 -        0x1a6903e27  libkeymgr.dylib (31) <5EC997EF-3ADA-360B-9FCD-5F940C83FA4E> /usr/lib/system/libkeymgr.dylib
+       0x1a6904000 -        0x1a690caf7  libsystem_dnssd.dylib (3111.0.5.0.1) <DE22096F-1E5B-3D6E-8164-771582DD6391> /usr/lib/system/libsystem_dnssd.dylib
+       0x1a690d000 -        0x1a6911f1b  libcache.dylib (95) <80BAE197-E285-3F6E-A1EE-B77FE37D7E5D> /usr/lib/system/libcache.dylib
+       0x1a6912000 -        0x1a69138f3  libSystem.B.dylib (1359) <4FDC9AA6-B344-37FE-B8C6-A4C94A038F57> /usr/lib/libSystem.B.dylib
+       0x1a694c000 -        0x1a69530a3  libiconv.2.dylib (121) <C343D6F7-6932-30E8-8E8F-F756946D8413> /usr/lib/libiconv.2.dylib
+       0x1ad474000 -        0x1ad474f2f  libobjcMsgSend2.dylib (973.1) <BD27A84B-C9AE-3282-BBEA-3B6119837B5A> /usr/lib/objc/libobjcMsgSend2.dylib
+       0x1b5474000 -        0x1b5474f2f  libobjcMsgSend3.dylib (973.1) <C0860D68-DDFC-3BD7-8B06-DB0645CBBED4> /usr/lib/objc/libobjcMsgSend3.dylib
+       0x1bd474000 -        0x1bd474f2f  libobjcMsgSend4.dylib (973.1) <A6153BF5-622B-3B01-81B6-F64A365EF613> /usr/lib/objc/libobjcMsgSend4.dylib
+       0x1c5474000 -        0x1c5474f2f  libobjcMsgSend5.dylib (973.1) <3913A71C-B29A-3AEA-820B-BEC40AC1861A> /usr/lib/objc/libobjcMsgSend5.dylib
+       0x1cd474000 -        0x1cd474f2f  libobjcMsgSend6.dylib (973.1) <9BC523A3-E167-3F6C-8CAE-0F3EBA671791> /usr/lib/objc/libobjcMsgSend6.dylib
+       0x1d5474000 -        0x1d5474f2f  libobjcMsgSend7.dylib (973.1) <248B7BCE-5B4C-34C7-A340-43D5228628C5> /usr/lib/objc/libobjcMsgSend7.dylib
+       0x1dd474000 -        0x1dd474f2f  libobjcMsgSend8.dylib (973.1) <3E041BAD-A8E8-3069-B741-78CD1A45B176> /usr/lib/objc/libobjcMsgSend8.dylib
+       0x1e5474000 -        0x1e5474f2f  libobjcMsgSend9.dylib (973.1) <34A67969-21A0-39D6-BB81-8FDA5A2409DB> /usr/lib/objc/libobjcMsgSend9.dylib
+       0x1ed474000 -        0x1ed474f2f  libobjcMsgSend10.dylib (973.1) <678186C0-8EAD-3B35-8CBB-00285B41E4A0> /usr/lib/objc/libobjcMsgSend10.dylib
+       0x1f5474000 -        0x1f5474f2f  libobjcMsgSend11.dylib (973.1) <E05CB08C-E956-36FA-8967-AE8E346A8D2C> /usr/lib/objc/libobjcMsgSend11.dylib
+       0x21d474000 -        0x21d474f2f  libobjcMsgSend12.dylib (973.1) <10AB03AA-FF1F-3FDC-9DFB-BFC40042C501> /usr/lib/objc/libobjcMsgSend12.dylib
+       0x225474000 -        0x225474f2f  libobjcMsgSend13.dylib (973.1) <ABF53427-FA6F-3D0D-8F9D-7AD795CA5C92> /usr/lib/objc/libobjcMsgSend13.dylib
+       0x22d474000 -        0x22d474f2f  libobjcMsgSend14.dylib (973.1) <9A844C46-A6DA-34D4-8EBF-2AD775C30684> /usr/lib/objc/libobjcMsgSend14.dylib
+       0x235474000 -        0x235474f2f  libobjcMsgSend15.dylib (973.1) <7C995666-2B2D-3284-AA0A-EBF7C922838E> /usr/lib/objc/libobjcMsgSend15.dylib
+       0x23d474000 -        0x23d474f2f  libobjcMsgSend16.dylib (973.1) <B6C0E14B-53AE-3E22-9ED5-1729C49F46F2> /usr/lib/objc/libobjcMsgSend16.dylib
+       0x245474000 -        0x245474f2f  libobjcMsgSend17.dylib (973.1) <07B4CF85-251B-301B-832B-20B315A59E19> /usr/lib/objc/libobjcMsgSend17.dylib
+       0x24d474000 -        0x24d474f2f  libobjcMsgSend18.dylib (973.1) <43E575B7-04DB-3999-A633-1A3B638BA6E3> /usr/lib/objc/libobjcMsgSend18.dylib
+       0x255474000 -        0x255474f2f  libobjcMsgSend19.dylib (973.1) <736F4D85-76F7-3B28-8D87-C07E8F7A0EF4> /usr/lib/objc/libobjcMsgSend19.dylib
+       0x25d474000 -        0x25d474f2f  libobjcMsgSend20.dylib (973.1) <74E67C8B-6BCA-3184-A18E-A97F370052C6> /usr/lib/objc/libobjcMsgSend20.dylib
+       0x265474000 -        0x265474f2f  libobjcMsgSend21.dylib (973.1) <CC0D732F-98E7-3888-9E15-70984DA2FB04> /usr/lib/objc/libobjcMsgSend21.dylib
+       0x26d474000 -        0x26d474f2f  libobjcMsgSend22.dylib (973.1) <85A60286-5DE3-32BA-B18C-2A498B065C88> /usr/lib/objc/libobjcMsgSend22.dylib
+       0x275474000 -        0x275474f2f  libobjcMsgSend23.dylib (973.1) <5452A0D2-6B19-39BE-ADDD-80B7BCDE3A98> /usr/lib/objc/libobjcMsgSend23.dylib
+       0x27d474000 -        0x27d474f2f  libobjcMsgSend24.dylib (973.1) <94BBF2D6-722B-350D-8557-4D25A8E8D53A> /usr/lib/objc/libobjcMsgSend24.dylib
+       0x285474000 -        0x285474f2f  libobjcMsgSend25.dylib (973.1) <35481387-5A8E-3AE4-86A6-94CEB3CC8726> /usr/lib/objc/libobjcMsgSend25.dylib
+       0x29d474000 -        0x29d474f2f  libobjcMsgSend26.dylib (973.1) <9E0C8664-E7F4-39D1-AAFC-BD92B255E4E8> /usr/lib/objc/libobjcMsgSend26.dylib
+       0x2a5474000 -        0x2a5474f2f  libobjcMsgSend27.dylib (973.1) <FD424935-55A9-3650-955A-EED3441A1D19> /usr/lib/objc/libobjcMsgSend27.dylib
+       0x2ad474000 -        0x2ad474f2f  libobjcMsgSend28.dylib (973.1) <09BA7B97-7DF7-3C7F-932A-B6847662FC49> /usr/lib/objc/libobjcMsgSend28.dylib
+       0x2b5474000 -        0x2b5474f2f  libobjcMsgSend29.dylib (973.1) <36D5BA3F-2139-30B0-8558-556764BE9813> /usr/lib/objc/libobjcMsgSend29.dylib
+       0x2bd474000 -        0x2bd474f2f  libobjcMsgSend30.dylib (973.1) <9F05564A-9D12-372C-98FC-E9F0E6BE4F04> /usr/lib/objc/libobjcMsgSend30.dylib
+       0x2c218e000 -        0x2c2194fe5  libRosetta.dylib (385) <E359944B-D230-33F9-A04E-0C3B17C3326E> /usr/lib/libRosetta.dylib
+       0x2c2b7d000 -        0x2c2b8075b  libsystem_darwindirectory.dylib (129.0.1) <61264923-2AA5-3658-B8C4-550C71E9D4B3> /usr/lib/system/libsystem_darwindirectory.dylib
+       0x2c2b81000 -        0x2c2b8bd9b  libsystem_eligibility.dylib (446.1.3) <EDDE8E9C-A2CF-3931-BBB3-321CB852EB30> /usr/lib/system/libsystem_eligibility.dylib
+       0x2c2b8c000 -        0x2c2b9542b  libsystem_sanitizers.dylib (32) <7138ED99-7AA0-34EA-B35B-20EF6ADB1EED> /usr/lib/system/libsystem_sanitizers.dylib
+       0x2c2b96000 -        0x2c2b96a13  libsystem_trial.dylib (511) <6AE48824-EC44-3A8C-B501-BE57DBE892E7> /usr/lib/system/libsystem_trial.dylib
+       0x2c5474000 -        0x2c5474f2f  libobjcMsgSend31.dylib (973.1) <0985E20F-78C3-3466-A2B2-DBB95F7104A3> /usr/lib/objc/libobjcMsgSend31.dylib
+       0x2cd474000 -        0x2cd474f2f  libobjcMsgSend32.dylib (973.1) <0D309D58-D576-3E5D-AD4B-6D55AB491702> /usr/lib/objc/libobjcMsgSend32.dylib
+       0x2d5474000 -        0x2d5474f2f  libobjcMsgSend33.dylib (973.1) <346E0484-48FA-369B-8A64-93B5F5341CFE> /usr/lib/objc/libobjcMsgSend33.dylib
+       0x2dd474000 -        0x2dd474f2f  libobjcMsgSend34.dylib (973.1) <6A31F809-BCBE-3E01-A367-E91FDACCE324> /usr/lib/objc/libobjcMsgSend34.dylib

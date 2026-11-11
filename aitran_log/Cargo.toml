@@ -1,0 +1,17 @@
+[package]
+name = "aitran_log"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "按项目名初始化滚动文件日志"
+keywords = ["log", "file", "logforth"]
+categories = ["development-tools::debugging"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+dirs = "7.0.0"
+logforth = { version = "0.30.1", features = ["starter-log"] }

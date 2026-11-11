@@ -1,0 +1,19 @@
+[package]
+name = "aitran_parse"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "翻译文本的行拆分、过滤与还原"
+keywords = ["i18n", "translate", "markdown"]
+categories = ["text-processing"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+md_prefix = { version = "0.1.0", path = "../md_prefix" }
+
+[build-dependencies]
+unicode-general-category = "1.1.0"

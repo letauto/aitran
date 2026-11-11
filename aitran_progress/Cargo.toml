@@ -1,0 +1,17 @@
+[package]
+name = "aitran_progress"
+description = "加权进度与剩余时间估算"
+keywords = [ "progress", "eta", "cli" ]
+categories = [ "development-tools" ]
+
+[package.version]
+workspace = true
+
+[package.edition]
+workspace = true
+
+[package.license]
+workspace = true
+
+[package.repository]
+workspace = true

@@ -1,0 +1,22 @@
+[package]
+name = "aitran_cli_conf"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "aitran_cli_conf"
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+ai_api = { version = "0.1.0", path = "../ai_api" }
+aitran_conf = { version = "0.1.0", path = "../aitran_conf" }
+confdir = "0.1.4"
+serde = { version = "1.0.229", default-features = false, features = ["derive", "std"] }
+
+[dev-dependencies]
+aok = "0.1.18"
+ctor = "1.0.13"
+log_init = "0.1.40"
