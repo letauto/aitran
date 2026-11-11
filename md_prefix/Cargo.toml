@@ -1,8 +1,6 @@
 [package]
 name = "md_prefix"
 description = "拆分并还原 Markdown 行首前缀"
-keywords = []
-categories = []
 
 [package.version]
 workspace = true
@@ -15,10 +13,3 @@ workspace = true
 
 [package.repository]
 workspace = true
-
-[package.metadata.docs.rs]
-all-features = true
-rustdoc-args = ["--cfg", "docsrs"]
-
-[features]
-default = []

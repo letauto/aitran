@@ -80,3 +80,48 @@ fn no_markdown() {
     assert_eq!(restore(part.prefix, part.body), line);
   }
 }
+
+/// 边界：空串、纯标记、CRLF、多字节贴边、数量上限
+#[test]
+fn edge() {
+  // 空串与纯空白行
+  for line in ["", " ", "\t", "\r\n"] {
+    let part = Part::new(line, true);
+    assert_eq!((part.prefix, part.body), ("", ""), "{line:?}");
+  }
+  // 标记后即行尾，整体入前缀
+  for line in [
+    ">", ">>>", "#", "######", "-", "+", "*", "1.", "9)", "- [ ]", "- [x]",
+  ] {
+    let part = Part::new(line, true);
+    assert_eq!((part.prefix, part.body), (line, ""), "{line}");
+  }
+  // CRLF：行尾 \r\n 随 trim_end 去掉
+  let part = Part::new("- item\r\n", true);
+  assert_eq!((part.prefix, part.body), ("- ", "item"));
+  // 多字节贴边、上限、无空白标记
+  let cases = [
+    ("#中文", "", "#中文"),
+    ("# 中文", "# ", "中文"),
+    ("- 中文", "- ", "中文"),
+    ("- [ ] 中文", "- [ ] ", "中文"),
+    ("+ [ ] t", "+ [ ] ", "t"),
+    ("* [x] t", "* [x] ", "t"),
+    ("中文。", "", "中文。"),
+    ("中文  ", "", "中文"),
+    ("\u{3000}中文", "\u{3000}", "中文"),
+    ("\u{3000}# 中文", "\u{3000}# ", "中文"),
+    (">>引用", "", ">>引用"),
+    ("- [ ]x", "- ", "[ ]x"),
+    ("###### 6 级", "###### ", "6 级"),
+    ("####### 7 级", "", "####### 7 级"),
+    ("0. 零", "0. ", "零"),
+    ("999999999. 顶格", "999999999. ", "顶格"),
+    ("1000000000. 溢出", "", "1000000000. 溢出"),
+  ];
+  for (line, prefix, body) in cases {
+    let part = Part::new(line, true);
+    assert_eq!((part.prefix, part.body), (prefix, body), "{line}");
+    assert_eq!(restore(part.prefix, part.body), line.trim_end());
+  }
+}

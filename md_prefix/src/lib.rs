@@ -1,5 +1,3 @@
-#![cfg_attr(docsrs, feature(doc_cfg))]
-
 //! 拆分并还原 Markdown 行首前缀。
 //!
 //! 前缀包含行首空白与 Markdown 结构标记（标题、引用、列表、任务列表），
@@ -30,7 +28,7 @@ impl<'a> Part<'a> {
   /// 拆一行；`markdown` 为 false 时只拆空白缩进
   pub fn new(line: &'a str, markdown: bool) -> Self {
     let end = line.trim_end();
-    let mut start = end.len() - end.trim_start().len();
+    let mut start = lead_ws(end);
     if markdown {
       while let Some(n) = md(&end[start..]) {
         start += n;
@@ -78,7 +76,7 @@ fn md(s: &str) -> Option<usize> {
       let n = b
         .iter()
         .take(MAX_DIGIT + 1)
-        .take_while(|c| c.is_ascii_digit())
+        .take_while(|&&c| c.is_ascii_digit())
         .count();
       if n > MAX_DIGIT || n >= b.len() || !matches!(b[n], b'.' | b')') {
         return None;
@@ -89,23 +87,27 @@ fn md(s: &str) -> Option<usize> {
   };
   // 标记后必须是空白或行尾
   if i < b.len() {
-    let rest = &s[i..];
-    let ws = rest.len() - rest.trim_start().len();
+    let ws = lead_ws(&s[i..]);
     if ws == 0 {
       return None;
     }
     i += ws;
   }
-  // 任务列表：`- [ ] ` / `- [x] `
-  if matches!(first, b'-' | b'+' | b'*')
-    && let Some(tail) = s.get(i..)
-    && (tail.starts_with("[ ]") || tail.starts_with("[x]") || tail.starts_with("[X]"))
-  {
-    let rest = &tail[3..];
-    let ws = rest.len() - rest.trim_start().len();
-    if ws > 0 || rest.is_empty() {
-      i += 3 + ws;
+  // 任务列表：`- [ ] ` / `- [x] `；i 始终由 ASCII 标记与整字符空白构成，必在字符边界
+  if matches!(first, b'-' | b'+' | b'*') {
+    let tail = &s[i..];
+    if tail.starts_with("[ ]") || tail.starts_with("[x]") || tail.starts_with("[X]") {
+      let rest = &tail[3..];
+      let ws = lead_ws(rest);
+      if ws > 0 || rest.is_empty() {
+        i += 3 + ws;
+      }
     }
   }
   Some(i)
+}
+
+/// 行首空白字节数（Unicode 空白，按整字符计数，落在字符边界上）
+fn lead_ws(s: &str) -> usize {
+  s.len() - s.trim_start().len()
 }

@@ -11,8 +11,8 @@ all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
 
 [dependencies]
-ai_api = { version = "0.1.0", path = "../ai_api" }
-aitran_conf = { version = "0.1.0", path = "../aitran_conf" }
+ai_api = { version = "0.1.1", path = "../ai_api" }
+aitran_conf = { version = "0.1.1", path = "../aitran_conf" }
 confdir = "0.1.4"
 serde = { version = "1.0.229", default-features = false, features = ["derive", "std"] }
 

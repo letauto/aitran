@@ -1,31 +1,54 @@
 [package]
 name = "aitran_api"
-version.workspace = true
-edition.workspace = true
-license.workspace = true
-repository.workspace = true
 description = "aitran_api"
-keywords = []
-categories = []
+keywords = [ ]
+categories = [ ]
 
-[features]
-default = []
+[package.version]
+workspace = true
+
+[package.edition]
+workspace = true
+
+[package.license]
+workspace = true
+
+[package.repository]
+workspace = true
 
 [package.metadata.docs.rs]
 all-features = true
-rustdoc-args = ["--cfg", "docsrs"]
+rustdoc-args = [ "--cfg", "docsrs" ]
+
+[features]
+default = [ ]
 
 [dependencies]
-ai_api = { version = "0.1.0", path = "../ai_api" }
-aitran_lang = { version = "0.1.0", path = "../aitran_lang" }
-aitran_parse = { version = "0.1.0", path = "../aitran_parse" }
 itoa = "1.0.19"
 thiserror = "2.0.21"
 
+[dependencies.ai_api]
+version = "0.1.1"
+path = "../ai_api"
+
+[dependencies.aitran_lang]
+version = "0.1.1"
+path = "../aitran_lang"
+
+[dependencies.aitran_parse]
+version = "0.1.1"
+path = "../aitran_parse"
+
 [dev-dependencies]
-aitran_cli_conf = { version = "0.1.0", path = "../aitran_cli_conf" }
 aok = "0.1.18"
-compio = { version = "0.19.2", features = ["macros"] }
 ctor = "1.0.13"
 log_init = "0.1.40"
 sonic-rs = "0.5.10"
+
+[dev-dependencies.aitran_cli_conf]
+path = "../aitran_cli_conf"
+version = "0.1.1"
+
+[dev-dependencies.compio]
+version = "0.19.2"
+features = [ "macros" ]

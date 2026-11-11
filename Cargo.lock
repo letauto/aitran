@@ -26,7 +26,7 @@ dependencies = [
 
 [[package]]
 name = "ai_api"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "aok",
  "compio",
@@ -47,7 +47,7 @@ dependencies = [
 
 [[package]]
 name = "aitran"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "ai_api",
  "aitran_api",
@@ -70,7 +70,7 @@ dependencies = [
 
 [[package]]
 name = "aitran_api"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "ai_api",
  "aitran_cli_conf",
@@ -87,7 +87,7 @@ dependencies = [
 
 [[package]]
 name = "aitran_cli_conf"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "ai_api",
  "aitran_conf",
@@ -100,7 +100,7 @@ dependencies = [
 
 [[package]]
 name = "aitran_conf"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "aitran_lang",
  "bit-set",
@@ -112,7 +112,7 @@ dependencies = [
 
 [[package]]
 name = "aitran_db"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "async-lock",
  "compio",
@@ -124,14 +124,14 @@ dependencies = [
 
 [[package]]
 name = "aitran_lang"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "strum",
 ]
 
 [[package]]
 name = "aitran_log"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "dirs 7.0.0",
  "logforth",
@@ -139,7 +139,7 @@ dependencies = [
 
 [[package]]
 name = "aitran_parse"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "md_prefix",
  "unicode-general-category",
@@ -147,7 +147,7 @@ dependencies = [
 
 [[package]]
 name = "aitran_progress"
-version = "0.1.0"
+version = "0.1.1"
 
 [[package]]
 name = "anstream"
@@ -1419,7 +1419,7 @@ dependencies = [
 
 [[package]]
 name = "md_prefix"
-version = "0.1.0"
+version = "0.1.1"
 
 [[package]]
 name = "memchr"
