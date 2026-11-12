@@ -1,0 +1,80 @@
+[workspace]
+resolver = "3"
+members = [
+  "aitran_conf",
+  "aitran_cli_conf",
+  "aitran_lang",
+  "ai_api",
+  "aitran_api",
+  "md_prefix",
+  "aitran_parse",
+  "aitran_db",
+  "aitran",
+  "aitran_log",
+  "aitran_progress",
+]
+
+[workspace.package]
+version = "0.1.1"
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/letauto/aitran"
+
+# 版本与特性集中一处，各 crate 只引用，防漂移
+[workspace.dependencies]
+# 内部 crate
+ai_api = { version = "0.1.1", path = "ai_api" }
+aitran_api = { version = "0.1.1", path = "aitran_api" }
+aitran_cli_conf = { version = "0.1.1", path = "aitran_cli_conf" }
+aitran_conf = { version = "0.1.1", path = "aitran_conf" }
+aitran_db = { version = "0.1.1", path = "aitran_db" }
+aitran_lang = { version = "0.1.1", path = "aitran_lang" }
+aitran_log = { version = "0.1.1", path = "aitran_log" }
+md_prefix = { version = "0.1.1", path = "md_prefix" }
+aitran_parse = { version = "0.1.1", path = "aitran_parse" }
+aitran_progress = { version = "0.1.1", path = "aitran_progress" }
+# 外部依赖
+aok = "0.1.18"
+async-lock = "3.5.0"
+base64 = "0.23.1"
+bit-set = "0.11.1"
+blake3 = "1.8.7"
+clap_args = { version = "0.1.9", features = ["macro"] }
+compio = { version = "0.19.2", features = ["macros"] }
+compio-tls = "0.10.0"
+confdir = "0.1.4"
+ctor = "1.0.13"
+dirs = "7.0.0"
+fastrand = "2.5.0"
+find_conf = "0.1.0"
+find_ext = "0.3.1"
+futures-util = "0.3.34"
+gxhash = "3.5.0"
+hipstr = { version = "0.8.0", features = ["serde"] }
+itoa = "1.0.19"
+log = "0.4.35"
+log_init = "0.1.40"
+logforth = { version = "0.30.1", features = ["starter-log"] }
+memchr = "2.8.3"
+nested-text = { version = "0.1.0", default-features = false, features = ["serde"] }
+serde = { version = "1.0.229", default-features = false, features = ["derive", "std"] }
+smallvec = { version = "1.16.5", features = ["serde"] }
+sonic-rs = "0.5.10"
+strum = { version = "0.28.0", features = ["derive"] }
+tempfile = "3.27.0"
+thiserror = "2.0.21"
+unicode-general-category = "1.1.0"
+url = "2.5.8"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+overflow-checks = false
+
+[profile.bench]
+opt-level = 3
+lto = "fat"
+codegen-units = 1

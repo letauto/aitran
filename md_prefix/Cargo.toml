@@ -1,0 +1,15 @@
+[package]
+name = "md_prefix"
+description = "拆分并还原 Markdown 行首前缀"
+
+[package.version]
+workspace = true
+
+[package.edition]
+workspace = true
+
+[package.license]
+workspace = true
+
+[package.repository]
+workspace = true

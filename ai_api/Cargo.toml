@@ -1,0 +1,44 @@
+[package]
+name = "ai_api"
+description = "ai_api"
+keywords = [ ]
+categories = [ ]
+
+[package.version]
+workspace = true
+
+[package.edition]
+workspace = true
+
+[package.license]
+workspace = true
+
+[package.repository]
+workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = [ "--cfg", "docsrs" ]
+
+[features]
+default = [ ]
+
+[dependencies]
+compio-tls.workspace = true
+fastrand.workspace = true
+futures-util.workspace = true
+hipstr.workspace = true
+log.workspace = true
+memchr.workspace = true
+smallvec.workspace = true
+sonic-rs.workspace = true
+thiserror.workspace = true
+url.workspace = true
+
+compio = { workspace = true, features = ["net", "time"] }
+serde.workspace = true
+
+[dev-dependencies]
+aok.workspace = true
+ctor.workspace = true
+log_init.workspace = true

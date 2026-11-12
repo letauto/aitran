@@ -1,0 +1,22 @@
+[package]
+name = "aitran_conf"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+description = "解析 aii18n.nt 任务配置（NestedText）"
+keywords = ["i18n", "config", "nestedtext"]
+categories = ["config", "text-processing"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+aitran_lang.workspace = true
+bit-set.workspace = true
+nested-text.workspace = true
+serde.workspace = true
+strum.workspace = true
+thiserror.workspace = true

@@ -1,0 +1,22 @@
+[package]
+name = "aitran_cli_conf"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "aitran_cli_conf"
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+ai_api.workspace = true
+aitran_conf.workspace = true
+confdir.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+aok.workspace = true
+ctor.workspace = true
+log_init.workspace = true

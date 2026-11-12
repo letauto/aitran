@@ -1,0 +1,41 @@
+[package]
+name = "aitran_api"
+description = "aitran_api"
+keywords = [ ]
+categories = [ ]
+
+[package.version]
+workspace = true
+
+[package.edition]
+workspace = true
+
+[package.license]
+workspace = true
+
+[package.repository]
+workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = [ "--cfg", "docsrs" ]
+
+[features]
+default = [ ]
+
+[dependencies]
+itoa.workspace = true
+thiserror.workspace = true
+
+ai_api.workspace = true
+aitran_lang.workspace = true
+aitran_parse.workspace = true
+
+[dev-dependencies]
+aok.workspace = true
+ctor.workspace = true
+log_init.workspace = true
+sonic-rs.workspace = true
+
+aitran_cli_conf.workspace = true
+compio.workspace = true

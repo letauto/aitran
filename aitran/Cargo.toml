@@ -1,0 +1,38 @@
+[package]
+name = "aitran"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "aitran"
+keywords = []
+categories = []
+
+[features]
+default = []
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+ai_api.workspace = true
+aitran_api.workspace = true
+aitran_cli_conf.workspace = true
+aitran_conf.workspace = true
+aitran_db.workspace = true
+aitran_log.workspace = true
+aitran_parse.workspace = true
+aitran_progress.workspace = true
+base64.workspace = true
+blake3.workspace = true
+clap_args.workspace = true
+compio.workspace = true
+find_conf.workspace = true
+find_ext.workspace = true
+gxhash.workspace = true
+log.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
